@@ -13,13 +13,11 @@ public class Curso extends Conteudo{
 
     @Override
     public double calcularXp() {
-        // TODO Auto-generated method stub
         return XP_PADRAO + cargaHoraria;
     }
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "Curso: " + getTitulo() + ", Carga: " + cargaHoraria + ", Descrição: " + getDescricao();
     }
 }
