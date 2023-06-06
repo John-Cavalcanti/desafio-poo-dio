@@ -8,9 +8,28 @@ import java.util.Set;
 public class Dev {
     private String nome;
     private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
-    //adicionar conteudos em andamento
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
+    /* - adicionar conteudos em andamento
+     * - assignContent() ja tem
+     * - removeBootcamp() feito mas nao testado
+     */
+
+    // Meus metodos
+
+    public void removerBootcamp(Bootcamp bootcamp) {
+        if (bootcamp.getDevsInscritos().contains(this)){
+            bootcamp.getDevsInscritos().remove(this);
+
+            for(Conteudo conteudo : bootcamp.getConteudos()){
+                if(this.conteudosInscritos.contains(conteudo)){
+                    this.conteudosInscritos.remove(conteudo);
+                }
+            }
+        }
+    }
+
+    // Metodos base
     public void inscreverBootcamp(Bootcamp bootcamp){
         this.conteudosInscritos.addAll(bootcamp.getConteudos());
         bootcamp.getDevsInscritos().add(this);

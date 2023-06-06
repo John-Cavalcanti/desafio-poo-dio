@@ -1,6 +1,7 @@
 package br.com.dio.desafio.dominio;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -13,6 +14,35 @@ public class Bootcamp {
     private final LocalDate dataFinal = dataInicial.plusDays(45);
     private Set<Dev> devsInscritos = new HashSet<>();
     private Set<Conteudo> conteudos = new LinkedHashSet<>();
+    /*
+     * Methods to add :
+     * - addContent(Content content) done
+     * - removeContent(Content content) done
+     * - getAllContents() done
+     * - getDescription() done
+     * - getDuration() done
+     * - getParticipantProgress() talvez fazer na classe Dev
+     */
+
+    // Meus metodos
+
+    public void addContent(Conteudo conteudo){
+        this.conteudos.add(conteudo);
+    }
+
+    public void removerConteudo(Conteudo conteudo) {
+        this.conteudos.remove(conteudo);
+    }
+
+    public long getDuracao() {
+        long duracao = 0;
+
+        duracao = ChronoUnit.DAYS.between(this.dataInicial, this.dataFinal);
+        
+        return duracao;
+    }
+    
+    /**************** Metodos base ****************/
 
     public void setNome(String nome) {
         this.nome = nome;
